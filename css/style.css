@@ -1,0 +1,593 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+
+*{
+	box-sizing: border-box;
+	/*border: 0.5px solid;*/
+}
+body{
+	margin:0;
+	font-family: "Raleway", sans-serif;
+	text-align: center;
+	font-size: 16px;
+}
+
+img{
+	max-width: 100%;
+	height: auto;
+}
+
+.container{
+	width: 95%;
+	margin: 0 auto;
+}
+
+.clearfix::after,
+section::after{
+	display: block;
+	content: '';
+	clear: both;
+}
+
+/* ================== Typography =============================== */
+
+p{
+	line-height: 1.5em;
+}
+
+p:last-of-type {
+	margin-bottom:0;
+}
+
+
+h1{
+	font-weight: 300;
+	font-size: 2.5rem;
+}
+
+.title{
+	font-size: 2.5rem;
+	text-align: center;
+	margin-bottom: 1.5em;
+}
+
+.title span{
+	display: block;
+	font-size: .75em;
+}
+
+@media (min-width: 60rem) {
+	.title{
+		font-size: 3rem;
+	}
+
+	p{
+		font-size: 1.2rem;
+	}
+}
+
+@media (min-width: 80rem){
+	.title{
+		font-size: 4rem;
+	}
+
+}
+@media (max-width: 34rem){
+	.container{
+		min-width: 100%;
+	}
+}
+
+
+/* buttons */
+
+.button{
+	display: inline-block;
+	font-size: 1.1em;
+	text-decoration: none;
+	border: solid 2px;
+	padding: .4em 2em;
+	text-transform: uppercase;
+}
+
+.button-mais{
+	border-color: rgba(165, 97, 88, 1);
+	color: #FFF;
+
+}
+.button-mais:hover, .button-mais:focus {
+	background: rgba(255, 255, 255, 0.2);
+	color: #FFF;
+}
+
+@media (min-width: 60rem){
+	.button-mais{
+		font-size: 1.5rem;
+	}
+}
+
+.button-accent{
+	border: 2px solid  #A56158;
+	color: #FFF;
+}
+
+.button-accent:hover{
+	background: rgba(255, 255, 255, .4);
+	box-shadow:  0 0 2em 0 rgba(255, 255, 255, .5);
+}
+
+.button-contato{
+	display: inline-block;
+	font-size:1.9rem;
+	padding: .4em;
+	border: 2px solid;
+	color: #FFF;
+	margin-bottom: .4em;
+}
+
+.button-contato:hover{
+	box-shadow: 3em rgba(255, 255, 255, .9);
+	background: rgba(255, 255, 255, .3);
+}
+
+/* =================== Header ==================================== */
+
+header{ 
+	position: relative;
+	left: 0;
+	right:0;
+}
+
+nav{
+	margin-top: .5em;
+	margin-right: .5em;
+	float: right;
+}
+
+.logotipo{
+	width: 4em;
+	float: left;
+	margin-top: .5em;
+	margin-left: .5em;
+}
+
+.logo:hover {
+	background-color: rgba(255, 255, 255, .5);
+	border-radius: 50%;       
+}
+.logoresponsive{
+	position:relative;
+}
+
+nav ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+}
+
+nav li{
+	display: inline-block;
+	padding: .7em;
+	margin: .2em;
+}
+
+nav a{
+	font-weight: 600;
+	text-decoration: none;
+	font-size: 1em;
+	color: #FFF;
+	padding: .4em;
+
+}
+
+@media (min-width: 80rem){
+	nav a{
+		font-weight: 600;
+		text-decoration: none;
+		font-size: 1.2em;
+		padding: .9em;
+		color: #FFF;
+	}
+}
+
+nav a:hover{
+	background-color: #A56158 ;
+}
+
+@media (min-width: 60rem) {
+	.logotipo{
+		width: 5rem;
+	}
+}
+
+@media (max-width: 52.5rem){
+	nav{
+		display: none;
+	}
+
+	.logotipo{
+		float:right;
+	}
+}
+
+@media (min-width: 52.55rem){
+	.sidebar-btn{
+		display:none;
+	}
+	
+}
+
+/* ============================ Sidebar ============================= */
+
+#sidebar{
+	position: fixed;
+	padding-top: .2em;
+	background: #232323;
+	width: 200px;
+	height: 100%;
+	display:block;
+	position: absolute;
+	left: 0;
+	transform: translateX(-100%);
+	top: 0px;
+	transition: transform .3s; 
+}
+
+#sidebar.active{
+	transform: translateX(0) !important;
+}
+
+/* Botão Sidebar */
+
+.sidebar-btn{
+	position: absolute;
+	top: .8em;
+	right: -55px;
+	width: 4em;
+	height: 4em;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+.sidebar-btn span{
+	display: block;
+	width: 2.8em;
+	height: .3em;
+	background: #232323;
+	position: absolute;
+	top: 1.85em;
+	transition: transform .3s;
+	left:15%;
+}
+
+.sidebar-btn span::before{
+	content: '';
+	position: absolute;
+	top: -10px;
+	left:0;
+	width: 100%;
+	height: .3em;
+	background: #232323;
+	transition: .3s;
+}	
+
+.sidebar-btn span::after{
+	content: '';
+	position: absolute;
+	top: 10px;
+	left:0;
+	width: 100%;
+	height: .3em;
+	background: #232323;
+	transition: .3s;
+}
+
+.sidebar-btn.toggle span{
+	background: transparent;
+}
+
+.sidebar-btn.toggle span::before{
+	top: 0;
+	transform: rotate(45deg);
+}
+
+.sidebar-btn.toggle span::after{
+	top: 0;
+	transform: rotate(-45deg);
+}
+
+/* ================= */
+
+#sidebar ul{
+	margin: 0;
+	padding: 0;
+}
+
+#sidebar ul li{
+	list-style: none;
+}
+
+#sidebar li a{
+	padding: .8em;
+	margin: 0;
+	margin-top: .1em;
+	text-decoration: none;
+	color: #FFF;
+	display: block;
+	left: -50%;
+	transform: translateX(8%);
+	width:85%;
+
+}
+
+#sidebar li a:hover{
+	background-color: #A56158;
+}
+
+/* linha que separa as opções */
+
+.border-top-sidebar{
+	border-top: 1px solid #FFF;
+	width: 85%;
+	left: -50%;
+	transform: translateX(8%);
+	margin: 0;
+	padding: 0;
+}
+
+/* Media Queries Sidebar e botao*/
+
+@media (max-width: 46.25rem) {
+	.sidebar-btn{
+		top: 1em;
+		right: -45px;
+		width: 2.8em;
+		height: 2.8em;
+	}
+
+	.sidebar-btn span{
+		width: 2em;
+		height: .25em;
+		top: 1.31em;
+		left:15%;
+	}
+
+	.sidebar-btn span::before{
+		top: -8px;
+		left:0;
+		height: .25em;
+		}	
+
+	.sidebar-btn span::after{
+		top: 8px;
+		left:0;
+		height: .25em;
+	}
+}
+
+
+/* ============================ home-intro ============================= */
+
+.home-intro{
+	background: url(../assets/img/home-background.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	padding: 18em 0;
+	color: #FFF;
+}
+
+@media (min-width: 60rem) {
+	.home-intro{
+		height: 105vh;
+		padding: 35vh;
+	}
+	
+}
+
+/*================================== home-about =========================== */
+
+
+#home-about-textbox{
+	background-color: #232323;
+	width: 100vw;
+	margin-left: -2.65%;
+	padding: 4em;
+	outline: 2px solid #A56158;
+	outline-offset: -3em;
+	color: #FFF;
+	position: relative;
+}
+
+#home-about-textbox h1{
+	color: #A56158 ;
+    margin-top: 0;
+    position: absolute;
+    top: .5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 .25em;
+    background: #232323;
+}
+
+/* mudança tamanho do titulo quem somos */
+
+@media (max-width: 35rem){
+	#home-about-textbox h1{
+		top: .9em;
+		font-size: 1.8em;
+	}
+}
+
+/* mudança tamanho do titulo quem somos */
+
+@media (min-width: 35rem){
+	#home-about-textbox h1{
+		top: .5em;
+		font-size: 2.5em;
+	}
+}
+
+/* mudança tamanho do titulo quem somos */
+
+@media (max-width: 24.5rem){
+	#home-about-textbox h1{
+		top: 1.25em;
+		font-size: 1.5em;
+		
+	}
+	#home-about-textbox p{
+		padding-top: 1em;
+	}
+}
+
+/* background image do home-about e movimentaçao da secçao home-about-textbox*/
+
+@media (min-width: 60rem) {
+	#home-about-textbox{
+		width: 50%;
+		top: -4.3em;
+		left:1em;
+		text-align: left;
+		box-shadow: 0 0 2em 0 rgba(165, 97, 88, .5);
+	}
+	
+	#home-about-textbox h1{
+		padding: 0 .25em;
+		font-size: 2.2em;
+		left: 2em;
+		transform: translateX(0);
+	}
+	.home-about{
+		background: url(../assets/img/home-about-background.png) no-repeat;
+		background-position: center;
+		padding-bottom: 10em;
+
+	}
+}
+
+/*================================== portfolio =========================== */
+
+#border-top{
+	left: -50%;
+	transform: translateX(50%);
+	width:50%;
+	border-top: 2px solid #000
+}
+.portfolio{
+	margin: 3em 0 0 0;
+	padding-top: .5em;
+}
+
+
+figure{
+	margin:0;
+}
+
+.port-desc p{
+	margin:0;
+}
+
+.port-item{
+	margin:0 ;
+	position: relative;
+}
+
+.port-item img{
+	display: block;
+}
+
+.port-desc{
+	transition: all ease-in-out 250ms;
+	position: absolute;
+	z-index: 100;
+	bottom: .1em;
+	background: rgba(0, 0, 0, .5);
+	padding: .2em 0 .2em 0;
+	width: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	color: #FFF;
+}
+
+@media (min-width: 53.25rem){
+	.port-item{
+		float: left;
+		width: 50%;
+	}
+
+	.port-desc p{
+		margin:0;
+		width: 100%;
+	}
+
+}
+
+@media (min-width: 67rem){
+	.port-item{
+		width: 33.33333333334%;
+		overflow:hidden;
+	}
+
+	.port-desc{
+		 transform: translateY(150%);
+	}
+
+	.port-item:hover .port-desc{
+		transform: translateY(0%);
+		transform: translateX(-50%);
+	}
+}
+
+/*================================== CTA =========================== */
+
+.cta{
+	background: rgba(165, 97, 88, .9);
+	padding: 1.5em 0 ;
+}
+
+.cta a{
+	text-decoration: none;
+}
+
+.title{
+	margin-bottom: 1em;
+	margin-top: .1em
+}
+
+/*================================== footer =========================== */
+
+#footer ul{
+	list-style: none;
+	padding: 0;
+}
+
+#footer a{
+	text-decoration: none;
+}
+
+.fa{
+	padding: 1em;
+	border-radius: 50%;
+	width: 3em;
+	margin: 1em .6em;
+}
+
+.fa:hover{
+	opacity: .7;
+}
+
+.fa-facebook{
+	color: #FFF;
+	background: #3B5598;
+}
+
+.fa-instagram{
+	color: #FFF;
+	background: #126588;
+}
+
+
+
